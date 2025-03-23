@@ -75,11 +75,11 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
 
   const socialIconVariants = {
     closed: { scale: 0, opacity: 0 },
-    open: i => ({ 
+    open: (index: number) => ({ 
       scale: 1, 
       opacity: 1,
       transition: { 
-        delay: 0.3 + (i * 0.1),
+        delay: 0.3 + (index * 0.1),
         type: "spring",
         stiffness: 200,
       }
@@ -142,7 +142,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                 {NAV_LINKS.map((navLink, index) => (
                   <motion.div key={navLink.href} variants={itemVariants} custom={index}>
                     <Link href={navLink.href}>
-                      <div
+                      <a
                         className={cn(
                           "flex items-center px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 cursor-pointer",
                           navLink.isPrimary
@@ -184,7 +184,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         )}
-                      </div>
+                      </a>
                     </Link>
                   </motion.div>
                 ))}

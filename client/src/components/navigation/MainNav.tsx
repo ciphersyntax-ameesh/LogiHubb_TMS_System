@@ -162,56 +162,58 @@ const MainNav = () => {
           >
             {NAV_LINKS.map((navLink, index) => (
               <motion.div key={navLink.href} variants={linkItemVariants}>
-                <Link href={navLink.href}>
-                  {navLink.isPrimary ? (
-                    <motion.div
-                      className={cn(
-                        "px-5 py-2.5 rounded-lg font-medium transition-all duration-300 cursor-pointer",
-                        "bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white shadow-md",
+                {navLink.isPrimary ? (
+                  <motion.div
+                    className="inline-block"
+                    whileHover={{ 
+                      scale: 1.05
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link href={navLink.href}>
+                      <a className={cn(
+                        "inline-block px-5 py-2.5 rounded-lg font-medium transition-all duration-300 cursor-pointer",
+                        "bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white shadow-md hover:shadow-[0_5px_15px_rgba(243,156,18,0.3)]",
                         "border border-[#F39C12]/20"
-                      )}
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: "0 5px 15px rgba(243, 156, 18, 0.3)" 
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <span className="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                        {navLink.label}
-                      </span>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      className={cn(
-                        "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer relative overflow-hidden group",
+                      )}>
+                        <span className="flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                          {navLink.label}
+                        </span>
+                      </a>
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    className="inline-block"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 0 }}
+                  >
+                    <Link href={navLink.href}>
+                      <a className={cn(
+                        "inline-block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer relative overflow-hidden group",
                         "text-white hover:text-white",
                         location === navLink.href ? "bg-[#1E3A5F]/80" : "hover:bg-[#1E3A5F]/60"
-                      )}
-                      whileHover={{ y: -2 }}
-                      whileTap={{ y: 0 }}
-                    >
-                      <span className="relative z-10">{navLink.label}</span>
-                      
-                      {/* Background fill animation on hover */}
-                      <motion.div 
-                        className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F] to-[#2980B9]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{ originX: 0 }}
-                      />
-                      
-                      {/* Bottom border for active state */}
-                      {location === navLink.href && (
-                        <motion.div 
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3498DB]"
-                          layoutId="activeNavIndicator"
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        />
-                      )}
-                    </motion.div>
-                  )}
-                </Link>
+                      )}>
+                        <span className="relative z-10">{navLink.label}</span>
+                        
+                        {/* Background fill animation on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F] to-[#2980B9]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        
+                        {/* Bottom border for active state */}
+                        {location === navLink.href && (
+                          <motion.div 
+                            className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3498DB]"
+                            layoutId="activeNavIndicator"
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          />
+                        )}
+                      </a>
+                    </Link>
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </motion.div>
