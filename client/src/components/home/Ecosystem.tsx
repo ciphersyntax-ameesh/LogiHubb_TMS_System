@@ -11,7 +11,7 @@ const Ecosystem = () => {
           </div>
           
           <h2 className="text-4xl font-display font-bold mb-6 relative inline-block">
-            LogiHubb <span className="text-[#E67E22]">Ecosystem</span>
+            <span className="text-[#2980B9]">LogiHubb</span> <span className="text-[#E67E22]">Ecosystem</span>
             <motion.div 
               className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#2980B9] to-[#E67E22] rounded-full"
               initial={{ width: 0 }}
@@ -63,8 +63,13 @@ const Ecosystem = () => {
                 whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="bg-[#2980B9]/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                  <i className="fas fa-users text-[#2980B9] text-xl"></i>
+                <div className="bg-[#2980B9]/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2980B9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
                 </div>
                 <h3 className="text-[#2980B9] text-xl font-bold mb-4">Customers</h3>
                 <ul className="space-y-3 text-gray-700">
@@ -111,8 +116,11 @@ const Ecosystem = () => {
                 whileHover={{ y: -5, boxShadow: '0 25px 30px -12px rgba(15, 42, 71, 0.4)' }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm mx-auto flex items-center justify-center mb-6 border-4 border-[#2980B9]/30">
-                  <i className="fas fa-network-wired text-[#E67E22] text-2xl"></i>
+                <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm mx-auto flex items-center justify-center mb-6 border-4 border-[#2980B9]/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-12 h-12">
+                    <circle cx="12" cy="12" r="10" stroke="#E67E22" strokeWidth="1.5" />
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#E67E22" />
+                  </svg>
                 </div>
                 <h3 className="text-2xl font-bold mb-3">LogiHubb TMS</h3>
                 <p className="text-white/80 mb-6">Intelligent Transport Management System</p>
@@ -162,8 +170,13 @@ const Ecosystem = () => {
                 whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="bg-[#E67E22]/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                  <i className="fas fa-truck text-[#E67E22] text-xl"></i>
+                <div className="bg-[#E67E22]/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E67E22" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
                 </div>
                 <h3 className="text-[#E67E22] text-xl font-bold mb-4">Suppliers</h3>
                 <ul className="space-y-3 text-gray-700">
