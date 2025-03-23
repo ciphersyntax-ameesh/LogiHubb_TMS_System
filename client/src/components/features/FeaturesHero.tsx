@@ -6,14 +6,14 @@ const FeaturesHero = () => {
       <div className="container mx-auto px-4 md:px-8 text-center">
         <AnimatedContainer animation="fadeUp" delay={0.2}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
-            <span className="text-white">LogiHubb</span>
-            <span className="text-[#E67E22]"> Features</span>
+            <span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span>
+            <span className="text-white"> Features</span>
           </h1>
         </AnimatedContainer>
         
         <AnimatedContainer animation="fadeUp" delay={0.4}>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-8">
-            Discover the comprehensive set of features that make LogiHubb the leading transport management solution in the industry.
+            Discover the comprehensive set of features that make <span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span> the leading transport management solution in the industry.
           </p>
         </AnimatedContainer>
         

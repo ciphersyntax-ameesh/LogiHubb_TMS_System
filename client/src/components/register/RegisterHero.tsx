@@ -7,13 +7,13 @@ const RegisterHero = () => {
         <AnimatedContainer animation="fadeUp" delay={0.2}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-white">Register for</span>
-            <span className="text-[#E67E22]"> LogiHubb</span>
+            <span className="text-[#2980B9]"> Logi</span><span className="text-[#E67E22]">Hubb</span>
           </h1>
         </AnimatedContainer>
         
         <AnimatedContainer animation="fadeUp" delay={0.4}>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-8">
-            Take the first step toward transforming your logistics operations with LogiHubb's AI-powered TMS solution.
+            Take the first step toward transforming your logistics operations with <span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span>'s AI-powered TMS solution.
           </p>
         </AnimatedContainer>
         

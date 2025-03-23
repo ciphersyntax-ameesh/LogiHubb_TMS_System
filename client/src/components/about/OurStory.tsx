@@ -12,13 +12,13 @@ const OurStory = () => {
                 Our <span className="text-[#E67E22]">Story</span>
               </h2>
               <p className="text-gray-300 mb-4">
-                LogiHubb was founded in 2018 by a team of logistics professionals and technology experts who saw the need for a more intelligent, data-driven approach to transport management.
+                <span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span> was founded in 2018 by a team of logistics professionals and technology experts who saw the need for a more intelligent, data-driven approach to transport management.
               </p>
               <p className="text-gray-300 mb-4">
                 Having experienced the inefficiencies of traditional logistics operations firsthand, our founding team set out to build a solution that would leverage artificial intelligence and machine learning to optimize the entire transportation process.
               </p>
               <p className="text-gray-300">
-                Today, LogiHubb serves hundreds of global enterprises, helping them reduce costs, improve visibility, and streamline their logistics operations through our innovative TMS platform.
+                Today, <span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span> serves hundreds of global enterprises, helping them reduce costs, improve visibility, and streamline their logistics operations through our innovative TMS platform.
               </p>
               
               <div className="mt-8 flex flex-col md:flex-row gap-4">
@@ -66,7 +66,7 @@ const OurStory = () => {
               >
                 <img 
                   src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-                  alt="LogiHubb Story" 
+                  alt="LogiHubb Company Story" 
                   className="rounded-lg shadow-2xl w-full"
                 />
               </motion.div>
