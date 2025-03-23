@@ -1,5 +1,6 @@
 import AnimatedContainer from "@/components/ui/animated-container";
 import { motion } from "framer-motion";
+import React from "react";
 
 const FeaturesHero = () => {
   return (
@@ -113,39 +114,77 @@ const FeaturesHero = () => {
                 </div>
               </motion.div>
               
-              {/* Pulsing dots representing data points */}
-              {[...Array(6)].map((_, i) => {
-                const angle = (i * 60) * (Math.PI / 180);
+              {/* Data Node Labels */}
+              {[
+                { angle: 0, label: "Shipment Tracking", icon: "truck" },
+                { angle: 60, label: "Route Optimization", icon: "route" },
+                { angle: 120, label: "Inventory Control", icon: "box" },
+                { angle: 180, label: "Vendor Management", icon: "handshake" },
+                { angle: 240, label: "Analytics & Reports", icon: "chart-line" },
+                { angle: 300, label: "Documentation", icon: "file-alt" }
+              ].map((item, i) => {
+                const angle = (item.angle) * (Math.PI / 180);
                 const x = Math.cos(angle) * 130;
                 const y = Math.sin(angle) * 130;
+                
+                // Calculate position for label (a bit farther out than the dot)
+                const labelX = Math.cos(angle) * 160;
+                const labelY = Math.sin(angle) * 160;
+                
                 return (
-                  <motion.div
-                    key={i}
-                    className="absolute w-3 h-3 rounded-full bg-[#E67E22]"
-                    style={{ 
-                      left: `calc(50% + ${x}px)`, 
-                      top: `calc(50% + ${y}px)` 
-                    }}
-                    initial={{ scale: 0 }}
-                    animate={{ 
-                      scale: [0, 1, 0],
-                      opacity: [0, 1, 0]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.3,
-                      ease: "easeInOut"
-                    }}
-                  />
+                  <React.Fragment key={i}>
+                    {/* Pulsing dot */}
+                    <motion.div
+                      className="absolute w-3 h-3 rounded-full bg-[#E67E22]"
+                      style={{ 
+                        left: `calc(50% + ${x}px)`, 
+                        top: `calc(50% + ${y}px)` 
+                      }}
+                      initial={{ scale: 0 }}
+                      animate={{ 
+                        scale: [0, 1, 0],
+                        opacity: [0, 1, 0]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.3,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    
+                    {/* Label */}
+                    <motion.div
+                      className="absolute text-xs md:text-sm font-medium text-white px-2 py-1 rounded-full bg-[#0F2A47] bg-opacity-70 border border-[#2980B9] flex items-center"
+                      style={{ 
+                        left: `calc(50% + ${labelX}px)`, 
+                        top: `calc(50% + ${labelY}px)`,
+                        transform: "translate(-50%, -50%)"
+                      }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.8,
+                        delay: 1 + (i * 0.2)
+                      }}
+                    >
+                      <i className={`fas fa-${item.icon} mr-1 text-[#E67E22]`}></i>
+                      <span className="hidden md:inline">{item.label}</span>
+                    </motion.div>
+                  </React.Fragment>
                 );
               })}
             </motion.div>
             
-            <div className="absolute inset-0 flex items-center justify-center bg-[#0F2A47] bg-opacity-50 backdrop-blur-sm">
-              <div className="text-center px-4 relative z-20">
-                <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">End-to-End Visibility</h3>
-                <p className="text-lg text-gray-200 max-w-2xl">Complete control and real-time insights across your entire supply chain</p>
+            {/* Text overlay with improved visibility */}
+            <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 bg-gradient-to-t from-[#0F2A47] to-transparent">
+              <div className="text-center px-4 relative z-20 max-w-2xl mx-auto bg-[#0F2A47] bg-opacity-80 p-4 rounded-xl shadow-lg border border-[#2980B9]/30">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
+                  Transport Management <span className="text-[#E67E22]">Command Center</span>
+                </h3>
+                <p className="text-base md:text-lg text-gray-200">
+                  Complete visibility and real-time control across your entire logistics network with our integrated dashboard
+                </p>
               </div>
             </div>
           </div>
