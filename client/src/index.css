@@ -11,3 +11,13 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* Custom animation for motion path animations */
+@keyframes moveAlongPath {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}

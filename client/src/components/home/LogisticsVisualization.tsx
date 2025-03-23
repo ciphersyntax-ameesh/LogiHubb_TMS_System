@@ -136,7 +136,8 @@ const LogisticsVisualization = () => {
   // Enhanced animations for dots traveling along the paths
   const dotVariants = {
     animate: (i: number) => ({
-      offsetDistance: ["0%", "100%"],
+      // Using CSS custom property in variants to avoid React warnings
+      // offsetDistance is handled directly via style attribute instead
       scale: [1, 1.8, 1],
       opacity: [0.5, 1, 0.5],
       transition: {
@@ -152,7 +153,8 @@ const LogisticsVisualization = () => {
   // Enhanced animation for the moving vehicle icons
   const vehicleVariants = {
     animate: (i: number) => ({
-      offsetDistance: ["0%", "100%"],
+      // Using CSS custom property in variants to avoid React warnings
+      // offsetDistance is handled directly via style attribute instead
       scale: [1, 1.1, 1],
       transition: {
         duration: 3,
@@ -322,8 +324,8 @@ const LogisticsVisualization = () => {
               <g key={`dot-group-${i}`}>
                 <motion.g
                   key={`dot-glow-motion-${i}`}
-                  initial={{ offsetDistance: "0%" }}
-                  animate={{ offsetDistance: "100%" }}
+                  initial={{ opacity: 1 }}
+                  animate={{ opacity: 1 }}
                   transition={{
                     duration: 4,
                     delay: i * 0.8,
@@ -334,7 +336,9 @@ const LogisticsVisualization = () => {
                   style={{
                     // Fix for React warning by using CSS properties properly
                     offsetPath: `path('${path}')`,
-                    offsetRotate: "auto"
+                    offsetRotate: "auto",
+                    offsetDistance: "0%", // Initial value
+                    animation: `moveAlongPath 4s ${i * 0.8}s infinite linear`
                   }}
                 >
                   {/* Glow effect */}
@@ -456,10 +460,12 @@ const LogisticsVisualization = () => {
               <motion.g
                 style={{ 
                   offsetPath: `path('${paths[activeStep]}')`,
-                  offsetRotate: "auto" 
+                  offsetRotate: "auto",
+                  offsetDistance: "0%",
+                  animation: "moveAlongPath 6s linear infinite"
                 }}
-                initial={{ offsetDistance: "0%" }}
-                animate={{ offsetDistance: "100%" }}
+                initial={{ scale: 1 }}
+                animate={{ scale: 1 }}
                 transition={{
                   duration: 6,
                   ease: "linear",
