@@ -4,6 +4,8 @@ import CoreFeatures from "@/components/features/CoreFeatures";
 import ApiIntegrations from "@/components/features/ApiIntegrations";
 import Analytics from "@/components/features/Analytics";
 import MobileApp from "@/components/features/MobileApp";
+import Sustainability from "@/components/features/Sustainability";
+import Security from "@/components/features/Security";
 import FeaturesCta from "@/components/features/FeaturesCta";
 import { pageTransition } from "@/styles/animations";
 
@@ -19,6 +21,8 @@ const Features = () => {
       <CoreFeatures />
       <ApiIntegrations />
       <Analytics />
+      <Sustainability />
+      <Security />
       <MobileApp />
       <FeaturesCta />
     </motion.div>
