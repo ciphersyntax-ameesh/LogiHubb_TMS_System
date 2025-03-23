@@ -209,37 +209,37 @@ const Hero = () => {
             
             <AnimatedContainer animation="fadeUp" delay={0.8}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/register">
-                  <motion.div
-                    className="inline-block bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-all duration-300 cursor-pointer border border-[#F39C12]/20"
-                    variants={pulseAnimation}
-                    initial="initial"
-                    animate="animate"
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 0 15px rgba(230, 126, 34, 0.5)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Request Demo
-                  </motion.div>
-                </Link>
-                <Link href="/features">
-                  <motion.div
-                    className="inline-block bg-transparent border-2 border-[#2980B9] hover:border-[#3498DB] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 0 10px rgba(41, 128, 185, 0.3)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="relative z-10">Explore Features</span>
-                    <motion.div 
-                      className="absolute inset-0 bg-[#2980B9]/20 w-0 group-hover:w-full transition-all duration-300"
-                      initial={{ width: 0 }}
-                    />
-                  </motion.div>
-                </Link>
+                <motion.div
+                  className="inline-block"
+                  variants={pulseAnimation}
+                  initial="initial"
+                  animate="animate"
+                  whileHover={{ 
+                    scale: 1.05
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link href="/register">
+                    <a className="inline-block bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-all duration-300 cursor-pointer border border-[#F39C12]/20 hover:shadow-[0_0_15px_rgba(230,126,34,0.5)]">
+                      Request Demo
+                    </a>
+                  </Link>
+                </motion.div>
+                
+                <motion.div
+                  className="inline-block"
+                  whileHover={{ 
+                    scale: 1.05
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link href="/features">
+                    <a className="inline-block bg-transparent border-2 border-[#2980B9] hover:border-[#3498DB] hover:shadow-[0_0_10px_rgba(41,128,185,0.3)] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden group">
+                      <span className="relative z-10">Explore Features</span>
+                      <div className="absolute inset-0 bg-[#2980B9]/20 w-0 group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                  </Link>
+                </motion.div>
               </div>
               
               {/* Trust badges */}
