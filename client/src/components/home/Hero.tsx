@@ -156,7 +156,7 @@ const Hero = () => {
             
             <AnimatedContainer animation="fadeUp" delay={0.4}>
               <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-lg leading-relaxed">
-                LogiHubb delivers end-to-end transport management solutions powered by artificial intelligence and machine learning, optimizing your entire logistics operation for 
+                <span className="text-[#2980B9] font-semibold">Logi</span><span className="text-[#E67E22] font-semibold">Hubb</span> delivers end-to-end transport management solutions powered by artificial intelligence and machine learning, optimizing your entire logistics operation for 
                 <span className="text-[#E67E22] font-semibold"> maximum efficiency</span> and 
                 <span className="text-[#2980B9] font-semibold"> complete visibility</span>.
               </p>

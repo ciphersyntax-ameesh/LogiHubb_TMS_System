@@ -7,7 +7,7 @@ const AboutHero = () => {
         <AnimatedContainer animation="fadeUp" delay={0.2}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-white">About</span>
-            <span className="text-[#E67E22]"> LogiHubb</span>
+            <span className="text-[#2980B9]"> Logi</span><span className="text-[#E67E22]">Hubb</span>
           </h1>
         </AnimatedContainer>
         

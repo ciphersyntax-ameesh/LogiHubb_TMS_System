@@ -42,8 +42,8 @@ const AboutSection = () => {
             />
           </div>
           
-          <h2 className="text-4xl font-display font-bold mb-6 relative inline-block">
-            About <span className="text-[#E67E22]">LogiHubb</span>
+          <h2 className="text-4xl font-display font-bold mb-6 relative inline-block text-gray-900">
+            About <span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span>
             <motion.div 
               className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#2980B9] to-[#E67E22] rounded-full"
               initial={{ width: 0 }}

@@ -11,7 +11,7 @@ const Ecosystem = () => {
           </div>
           
           <h2 className="text-4xl font-display font-bold mb-6 relative inline-block">
-            <span className="text-[#2980B9]">LogiHubb</span> <span className="text-[#E67E22]">Ecosystem</span>
+            <span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span> <span className="text-gray-900">Ecosystem</span>
             <motion.div 
               className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#2980B9] to-[#E67E22] rounded-full"
               initial={{ width: 0 }}
@@ -122,7 +122,7 @@ const Ecosystem = () => {
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#E67E22" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">LogiHubb TMS</h3>
+                <h3 className="text-2xl font-bold mb-3"><span className="text-[#2980B9]">Logi</span><span className="text-[#E67E22]">Hubb</span> TMS</h3>
                 <p className="text-white/80 mb-6">Intelligent Transport Management System</p>
                 
                 <div className="grid grid-cols-2 gap-4 mt-6">
