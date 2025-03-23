@@ -320,32 +320,40 @@ const LogisticsVisualization = () => {
             {/* Enhanced moving dots with glowing effect */}
             {paths.map((path, i) => (
               <g key={`dot-group-${i}`}>
-                {/* Glow effect */}
-                <motion.circle
-                  key={`dot-glow-${i}`}
-                  cx="0"
-                  cy="0"
-                  r="8"
-                  fill="#E67E22"
-                  fillOpacity="0.4"
-                  style={{ offsetPath: `path('${path}')` }}
-                  variants={dotVariants}
-                  animate="animate"
-                  custom={i}
-                />
-                {/* Main dot */}
-                <motion.circle
-                  key={`dot-${i}`}
-                  cx="0"
-                  cy="0"
-                  r="4"
-                  fill="#E67E22"
-                  style={{ offsetPath: `path('${path}')` }}
-                  variants={dotVariants}
-                  animate="animate"
-                  custom={i}
-                  filter="drop-shadow(0 0 2px rgba(230, 126, 34, 0.8))"
-                />
+                <motion.g
+                  key={`dot-glow-motion-${i}`}
+                  initial={{ offsetDistance: "0%" }}
+                  animate={{ offsetDistance: "100%" }}
+                  transition={{
+                    duration: 4,
+                    delay: i * 0.8,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "linear"
+                  }}
+                  style={{
+                    // Fix for React warning by using CSS properties properly
+                    offsetPath: `path('${path}')`,
+                    offsetRotate: "auto"
+                  }}
+                >
+                  {/* Glow effect */}
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="8"
+                    fill="#E67E22"
+                    fillOpacity="0.4"
+                  />
+                  {/* Main dot */}
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="4"
+                    fill="#E67E22"
+                    filter="drop-shadow(0 0 2px rgba(230, 126, 34, 0.8))"
+                  />
+                </motion.g>
               </g>
             ))}
             
@@ -447,12 +455,17 @@ const LogisticsVisualization = () => {
             {activeStep < 4 && (
               <motion.g
                 style={{ 
-                  offsetPath: `path('${paths[activeStep]}')` 
+                  offsetPath: `path('${paths[activeStep]}')`,
+                  offsetRotate: "auto" 
                 }}
-                variants={vehicleVariants}
                 initial={{ offsetDistance: "0%" }}
-                animate="animate"
-                custom={activeStep}
+                animate={{ offsetDistance: "100%" }}
+                transition={{
+                  duration: 6,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "loop"
+                }}
               >
                 {getVehicleIcon(activeStep)}
               </motion.g>

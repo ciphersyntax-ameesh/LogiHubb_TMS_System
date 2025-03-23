@@ -20,18 +20,20 @@ const Cta = () => {
         </AnimatedContainer>
         
         <AnimatedContainer animation="fadeUp" delay={0.4}>
-          <Link href="/register">
-            <motion.a
-              className="inline-block bg-[#E67E22] hover:bg-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-colors duration-300"
-              variants={pulseAnimation}
-              initial="initial"
-              animate="animate"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started Today
-            </motion.a>
-          </Link>
+          <motion.div
+            className="inline-block"
+            variants={pulseAnimation}
+            initial="initial"
+            animate="animate"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link href="/register">
+              <a className="inline-block bg-[#E67E22] hover:bg-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-colors duration-300">
+                Get Started Today
+              </a>
+            </Link>
+          </motion.div>
         </AnimatedContainer>
       </div>
     </div>
