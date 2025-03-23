@@ -219,11 +219,12 @@ const Hero = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Link href="/register">
-                    <a className="inline-block bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-all duration-300 cursor-pointer border border-[#F39C12]/20 hover:shadow-[0_0_15px_rgba(230,126,34,0.5)]">
-                      Request Demo
-                    </a>
-                  </Link>
+                  <div
+                    onClick={() => window.location.href = '/register'}
+                    className="inline-block bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-all duration-300 cursor-pointer border border-[#F39C12]/20 hover:shadow-[0_0_15px_rgba(230,126,34,0.5)]"
+                  >
+                    Request Demo
+                  </div>
                 </motion.div>
                 
                 <motion.div
@@ -233,12 +234,13 @@ const Hero = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Link href="/features">
-                    <a className="inline-block bg-transparent border-2 border-[#2980B9] hover:border-[#3498DB] hover:shadow-[0_0_10px_rgba(41,128,185,0.3)] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden group">
-                      <span className="relative z-10">Explore Features</span>
-                      <div className="absolute inset-0 bg-[#2980B9]/20 w-0 group-hover:w-full transition-all duration-300"></div>
-                    </a>
-                  </Link>
+                  <div
+                    onClick={() => window.location.href = '/features'}
+                    className="inline-block bg-transparent border-2 border-[#2980B9] hover:border-[#3498DB] hover:shadow-[0_0_10px_rgba(41,128,185,0.3)] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">Explore Features</span>
+                    <div className="absolute inset-0 bg-[#2980B9]/20 w-0 group-hover:w-full transition-all duration-300"></div>
+                  </div>
                 </motion.div>
               </div>
               
