@@ -83,9 +83,10 @@ const MainNav = () => {
         <div className="flex justify-between items-center h-full">
           <div className="flex items-center">
             {/* Logo with enhanced animation */}
-            <Link href="/">
+            <div>
               <motion.div 
                 className="flex items-center cursor-pointer"
+                onClick={() => window.location.href = '/'}
                 onHoverStart={() => setIsHoveringLogo(true)}
                 onHoverEnd={() => setIsHoveringLogo(false)}
                 whileTap={{ scale: 0.95 }}
@@ -150,7 +151,7 @@ const MainNav = () => {
                   )}
                 </div>
               </motion.div>
-            </Link>
+            </div>
           </div>
           
           {/* Desktop Navigation with animations */}
@@ -171,7 +172,7 @@ const MainNav = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Link href={navLink.href}>
-                      <a className={cn(
+                      <span className={cn(
                         "inline-block px-5 py-2.5 rounded-lg font-medium transition-all duration-300 cursor-pointer",
                         "bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white shadow-md hover:shadow-[0_5px_15px_rgba(243,156,18,0.3)]",
                         "border border-[#F39C12]/20"
@@ -182,7 +183,7 @@ const MainNav = () => {
                           </svg>
                           {navLink.label}
                         </span>
-                      </a>
+                      </span>
                     </Link>
                   </motion.div>
                 ) : (
@@ -192,7 +193,7 @@ const MainNav = () => {
                     whileTap={{ y: 0 }}
                   >
                     <Link href={navLink.href}>
-                      <a className={cn(
+                      <span className={cn(
                         "inline-block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer relative overflow-hidden group",
                         "text-white hover:text-white",
                         location === navLink.href ? "bg-[#1E3A5F]/80" : "hover:bg-[#1E3A5F]/60"
@@ -210,7 +211,7 @@ const MainNav = () => {
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                           />
                         )}
-                      </a>
+                      </span>
                     </Link>
                   </motion.div>
                 )}

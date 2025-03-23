@@ -141,8 +141,8 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
               <div className="space-y-2.5">
                 {NAV_LINKS.map((navLink, index) => (
                   <motion.div key={navLink.href} variants={itemVariants} custom={index}>
-                    <Link href={navLink.href}>
-                      <a
+                    <div onClick={() => { window.location.href = navLink.href; onClose(); }}>
+                      <span
                         className={cn(
                           "flex items-center px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 cursor-pointer",
                           navLink.isPrimary
@@ -150,7 +150,6 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                             : "text-white hover:bg-[#1E3A5F] hover:shadow-md",
                           location === navLink.href && !navLink.isPrimary && "bg-[#1E3A5F] border-l-4 border-[#3498DB]"
                         )}
-                        onClick={onClose}
                       >
                         {/* Icon based on link type */}
                         <div className="w-8 h-8 flex items-center justify-center mr-3 rounded-md bg-white/10">
@@ -184,8 +183,8 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         )}
-                      </a>
-                    </Link>
+                      </span>
+                    </div>
                   </motion.div>
                 ))}
               </div>

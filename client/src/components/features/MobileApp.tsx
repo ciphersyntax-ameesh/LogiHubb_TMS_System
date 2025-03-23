@@ -35,8 +35,8 @@ const MobileApp = () => {
               </div>
               
               <div className="mt-8 flex space-x-4">
-                <motion.a 
-                  href="#" 
+                <motion.button 
+                  onClick={() => window.open('#', '_blank')}
                   className="flex items-center bg-black text-white px-4 py-2 rounded-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -46,10 +46,10 @@ const MobileApp = () => {
                     <div className="text-xs">Download on the</div>
                     <div className="text-sm font-bold">App Store</div>
                   </div>
-                </motion.a>
+                </motion.button>
                 
-                <motion.a 
-                  href="#" 
+                <motion.button 
+                  onClick={() => window.open('#', '_blank')}
                   className="flex items-center bg-black text-white px-4 py-2 rounded-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -59,7 +59,7 @@ const MobileApp = () => {
                     <div className="text-xs">Get it on</div>
                     <div className="text-sm font-bold">Google Play</div>
                   </div>
-                </motion.a>
+                </motion.button>
               </div>
             </AnimatedContainer>
           </div>
