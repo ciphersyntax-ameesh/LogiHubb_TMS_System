@@ -28,9 +28,9 @@ const Footer = () => {
                 {FOOTER_LINKS.company.map((link, index) => (
                   <li key={index}>
                     <Link href={link.href}>
-                      <a className="text-gray-300 hover:text-[#E67E22] transition-colors duration-300">
+                      <span className="text-gray-300 hover:text-[#E67E22] transition-colors duration-300 cursor-pointer inline-block">
                         {link.label}
-                      </a>
+                      </span>
                     </Link>
                   </li>
                 ))}
@@ -43,9 +43,9 @@ const Footer = () => {
                 {FOOTER_LINKS.solutions.map((link, index) => (
                   <li key={index}>
                     <Link href={link.href}>
-                      <a className="text-gray-300 hover:text-[#E67E22] transition-colors duration-300">
+                      <span className="text-gray-300 hover:text-[#E67E22] transition-colors duration-300 cursor-pointer inline-block">
                         {link.label}
-                      </a>
+                      </span>
                     </Link>
                   </li>
                 ))}
@@ -58,9 +58,9 @@ const Footer = () => {
                 {FOOTER_LINKS.support.map((link, index) => (
                   <li key={index}>
                     <Link href={link.href}>
-                      <a className="text-gray-300 hover:text-[#E67E22] transition-colors duration-300">
+                      <span className="text-gray-300 hover:text-[#E67E22] transition-colors duration-300 cursor-pointer inline-block">
                         {link.label}
-                      </a>
+                      </span>
                     </Link>
                   </li>
                 ))}
