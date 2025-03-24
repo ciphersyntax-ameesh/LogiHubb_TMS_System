@@ -7,6 +7,7 @@ import MobileApp from "@/components/features/MobileApp";
 import Sustainability from "@/components/features/Sustainability";
 import Security from "@/components/features/Security";
 import FeaturesCta from "@/components/features/FeaturesCta";
+import AiFeatures from "@/components/features/AiFeatures";
 import { pageTransition } from "@/styles/animations";
 
 const Features = () => {
@@ -20,6 +21,7 @@ const Features = () => {
       <FeaturesHero />
       <CoreFeatures />
       <ApiIntegrations />
+      <AiFeatures />
       <Analytics />
       <Sustainability />
       <Security />
