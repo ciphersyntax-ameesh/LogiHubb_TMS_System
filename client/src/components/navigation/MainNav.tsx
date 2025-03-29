@@ -58,7 +58,7 @@ const MainNav = () => {
 
   return (
     <motion.nav 
-      className="fixed top-0 w-full z-50"
+      className="fixed top-0 w-full z-[60]"
       initial="transparent"
       animate={isScrolled ? "solid" : "transparent"}
       variants={navbarVariants}
@@ -83,19 +83,16 @@ const MainNav = () => {
         <div className="flex justify-between items-center h-full">
           <div className="flex items-center">
             {/* Logo with enhanced animation */}
-            <div>
-              <motion.div 
-                className="flex items-center cursor-pointer"
-                onClick={() => window.location.href = '/'}
-                onHoverStart={() => setIsHoveringLogo(true)}
-                onHoverEnd={() => setIsHoveringLogo(false)}
-                whileTap={{ scale: 0.95 }}
-              >
+            <div onClick={() => window.location.href = '/'}>
+              <div className="flex items-center cursor-pointer">
                 <motion.div 
                   className="relative"
                   variants={logoVariants}
                   animate={isHoveringLogo ? "hover" : "normal"}
                   transition={{ type: "spring", stiffness: 200 }}
+                  onHoverStart={() => setIsHoveringLogo(true)}
+                  onHoverEnd={() => setIsHoveringLogo(false)}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2980B9] to-[#3498DB] flex items-center justify-center shadow-lg">
                     <span className="text-white font-bold text-lg">LH</span>
@@ -150,7 +147,7 @@ const MainNav = () => {
                     </motion.div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
           
@@ -171,8 +168,7 @@ const MainNav = () => {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Link href={navLink.href}>
-                      <span className={cn(
+                    <div onClick={() => window.location.href = navLink.href} className={cn(
                         "inline-block px-5 py-2.5 rounded-lg font-medium transition-all duration-300 cursor-pointer",
                         "bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white shadow-md hover:shadow-[0_5px_15px_rgba(243,156,18,0.3)]",
                         "border border-[#F39C12]/20"
@@ -183,8 +179,7 @@ const MainNav = () => {
                           </svg>
                           {navLink.label}
                         </span>
-                      </span>
-                    </Link>
+                      </div>
                   </motion.div>
                 ) : (
                   <motion.div
@@ -192,12 +187,14 @@ const MainNav = () => {
                     whileHover={{ y: -2 }}
                     whileTap={{ y: 0 }}
                   >
-                    <Link href={navLink.href}>
-                      <span className={cn(
+                    <div 
+                      onClick={() => window.location.href = navLink.href}
+                      className={cn(
                         "inline-block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer relative overflow-hidden group",
                         "text-white hover:text-white",
                         location === navLink.href ? "bg-[#1E3A5F]/80" : "hover:bg-[#1E3A5F]/60"
-                      )}>
+                      )}
+                    >
                         <span className="relative z-10">{navLink.label}</span>
                         
                         {/* Background fill animation on hover */}
@@ -211,8 +208,7 @@ const MainNav = () => {
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                           />
                         )}
-                      </span>
-                    </Link>
+                      </div>
                   </motion.div>
                 )}
               </motion.div>
@@ -220,10 +216,10 @@ const MainNav = () => {
           </motion.div>
           
           {/* Mobile Menu Button with animation */}
-          <div className="md:hidden z-50">
+          <div className="md:hidden">
             <motion.button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative w-12 h-12 text-gray-200 hover:text-white focus:outline-none bg-[#1E3A5F]/80 rounded-lg flex items-center justify-center shadow-lg mobile-nav-button fixed top-4 right-4"
+              className="relative w-12 h-12 text-gray-200 hover:text-white focus:outline-none bg-[#1E3A5F]/80 rounded-lg flex items-center justify-center shadow-lg mobile-nav-button fixed top-4 right-4 z-[110]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle menu"
