@@ -692,8 +692,8 @@ const LogisticsVisualization = () => {
         </div>
       </motion.div>
       
-      {/* Active Step Indicators with better styling - positioned closer to the animation */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-6 z-20 active-step-indicator bg-[#0F2A47]/60 py-2 px-4 rounded-full shadow-lg">
+      {/* Active Step Indicators with better styling - positioned in the middle of the visualization */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-6 z-20 active-step-indicator bg-[#0F2A47]/80 py-2 px-4 rounded-full shadow-lg">
         {[0, 1, 2, 3, 4].map(step => (
           <motion.div
             key={`step-${step}`}
