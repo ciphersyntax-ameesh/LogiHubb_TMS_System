@@ -38,10 +38,24 @@
     padding-right: 1rem !important;
   }
   
-  /* Ensure proper mobile nav button positioning */
-  .mobile-nav-button {
+  /* Mobile navigation button fixes */
+  button[aria-label="Toggle menu"] {
     position: fixed !important;
-    right: 1rem !important;
+    top: 16px !important;
+    right: 16px !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  /* Make sure the mobile menu overlays other content */
+  .fixed.top-0.left-0.bottom-0 {
+    z-index: 999 !important;
+  }
+  
+  /* Ensure backdrop has proper z-index */
+  .fixed.inset-0.bg-black\/60 {
+    z-index: 998 !important;
   }
   
   /* Fix logistics animation steps positioning */

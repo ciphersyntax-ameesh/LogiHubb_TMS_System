@@ -11,88 +11,24 @@ type MobileNavProps = {
 const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
   const [location] = useLocation();
 
-  // Enhanced animations
+  // Simplified animations
   const backdropVariants = {
-    closed: {
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-        ease: "easeInOut",
-      },
-    },
-    open: {
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-      },
-    },
+    closed: { opacity: 0 },
+    open: { opacity: 1 }
   };
 
   const menuVariants = {
-    closed: {
-      opacity: 0,
-      x: "-100%",
-      transition: {
-        duration: 0.3,
-        ease: [0.4, 0, 0.2, 1],
-        staggerChildren: 0.05,
-        staggerDirection: -1,
-        when: "afterChildren",
-      },
-    },
-    open: {
-      opacity: 1,
-      x: "0%",
-      transition: {
-        duration: 0.4,
-        ease: [0.2, 0, 0, 1],
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-        when: "beforeChildren",
-      },
-    },
-  };
-
-  const itemVariants = {
-    closed: {
-      opacity: 0,
-      x: -20,
-      transition: {
-        duration: 0.2,
-        ease: "easeInOut",
-      },
-    },
-    open: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const socialIconVariants = {
-    closed: { scale: 0, opacity: 0 },
-    open: (index: number) => ({ 
-      scale: 1, 
-      opacity: 1,
-      transition: { 
-        delay: 0.3 + (index * 0.1),
-        type: "spring",
-        stiffness: 200,
-      }
-    })
+    closed: { x: "-100%" },
+    open: { x: 0 }
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop overlay - increased z-index */}
+          {/* Backdrop overlay */}
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] sm:block"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90]"
             initial="closed"
             animate="open"
             exit="closed"
@@ -100,47 +36,41 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
             onClick={onClose}
           />
           
-          {/* Mobile menu panel - fixed z-index and improved styling */}
+          {/* Mobile menu panel */}
           <motion.div
             className="fixed top-0 left-0 bottom-0 w-[80%] max-w-[320px] bg-gradient-to-br from-[#0F2A47] to-[#1E3A5F] shadow-2xl z-[100] overflow-y-auto flex flex-col"
             initial="closed"
             animate="open"
             exit="closed"
             variants={menuVariants}
+            transition={{ type: "tween", duration: 0.3 }}
           >
             {/* Menu header */}
-            <motion.div 
-              className="flex justify-between items-center px-6 py-4 border-b border-[#2980B9]/30"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
+            <div className="flex justify-between items-center px-6 py-4 border-b border-[#2980B9]/30">
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#2980B9] to-[#3498DB] flex items-center justify-center mr-3 shadow-md">
                   <span className="text-white font-bold text-lg">LH</span>
                 </div>
-                <div className="text-white font-display font-bold text-xl">
+                <div className="text-white font-bold text-xl">
                   Logi<span className="text-[#E67E22]">Hubb</span>
                 </div>
               </div>
               
-              <motion.button 
+              <button 
                 className="text-gray-300 hover:text-white focus:outline-none"
                 onClick={onClose}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
             
-            {/* Navigation links with enhanced styling */}
+            {/* Navigation links */}
             <div className="flex-1 px-4 py-5">
               <div className="space-y-2.5">
-                {NAV_LINKS.map((navLink, index) => (
-                  <motion.div key={navLink.href} variants={itemVariants} custom={index}>
+                {NAV_LINKS.map((navLink) => (
+                  <div key={navLink.href}>
                     <div
                       className={cn(
                         "flex items-center px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 cursor-pointer",
@@ -187,48 +117,14 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                         </svg>
                       )}
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
             
-            {/* Footer section with social links and contact */}
-            <motion.div 
-              className="px-6 py-4 bg-[#0F2A47]/80 border-t border-[#2980B9]/30"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              {/* Social icons */}
-              <div className="flex items-center justify-center space-x-4 mb-4">
-                {[
-                  { icon: "linkedin", color: "#0077B5" },
-                  { icon: "twitter", color: "#1DA1F2" },
-                  { icon: "facebook", color: "#1877F2" },
-                  { icon: "youtube", color: "#FF0000" }
-                ].map((social, index) => (
-                  <motion.div
-                    key={social.icon}
-                    onClick={() => window.open(`https://${social.icon}.com`)}
-                    className={`w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors cursor-pointer`}
-                    style={{ color: social.color }}
-                    variants={socialIconVariants}
-                    custom={index}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <i className={`fab fa-${social.icon}`}></i>
-                  </motion.div>
-                ))}
-              </div>
-              
-              {/* Contact button */}
-              <motion.div
-                className="text-center text-sm text-gray-400"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-              >
+            {/* Footer */}
+            <div className="px-6 py-4 bg-[#0F2A47]/80 border-t border-[#2980B9]/30">
+              <div className="text-center text-sm text-gray-400">
                 <div className="mb-2">Need support?</div>
                 <div 
                   onClick={() => window.location.href = 'mailto:support@logihubb.com'}
@@ -236,8 +132,8 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                 >
                   Contact Us
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </motion.div>
         </>
       )}

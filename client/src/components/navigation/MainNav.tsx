@@ -215,31 +215,23 @@ const MainNav = () => {
             ))}
           </motion.div>
           
-          {/* Mobile Menu Button with animation */}
-          <div className="md:hidden">
-            <motion.button 
+          {/* Mobile Menu Button - Fixed positioning and higher z-index */}
+          <div className="block md:hidden">
+            <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative w-12 h-12 text-gray-200 hover:text-white focus:outline-none bg-[#1E3A5F]/80 rounded-lg flex items-center justify-center shadow-lg mobile-nav-button fixed top-4 right-4 z-[110]"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="fixed top-4 right-4 w-12 h-12 text-white bg-[#0F2A47] hover:bg-[#1E3A5F] rounded-lg flex items-center justify-center shadow-lg z-[110]"
               aria-label="Toggle menu"
             >
-              <motion.div
-                animate={isMobileMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -5 }}
-                transition={{ duration: 0.2 }}
-                className="absolute w-6 h-0.5 bg-current"
-              />
-              <motion.div
-                animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                transition={{ duration: 0.2 }}
-                className="absolute w-6 h-0.5 bg-current"
-              />
-              <motion.div
-                animate={isMobileMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 5 }}
-                transition={{ duration: 0.2 }}
-                className="absolute w-6 h-0.5 bg-current"
-              />
-            </motion.button>
+              {isMobileMenuOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
       </div>
