@@ -222,48 +222,55 @@ const RegisterForm = () => {
                       <FormField
                         control={form.control}
                         name="companySize"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Company Size</FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <FormControl>
-                                <SelectTrigger className="bg-[#1E3A5F] border-[#2980B9] focus:border-[#E67E22] text-white">
-                                  <SelectValue placeholder="Select company size" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent className="bg-[#1E3A5F] border-[#2980B9] text-white">
-                                {COMPANY_SIZES.map((size) => (
-                                  <SelectItem key={size.value} value={size.value}>
-                                    {size.label}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                        render={({ field }) => {
+                          const { value, ...rest } = field;
+                          return (
+                            <FormItem>
+                              <FormLabel>Company Size</FormLabel>
+                              <Select
+                                onValueChange={rest.onChange}
+                                value={value || undefined}
+                              >
+                                <FormControl>
+                                  <SelectTrigger className="bg-[#1E3A5F] border-[#2980B9] focus:border-[#E67E22] text-white">
+                                    <SelectValue placeholder="Select company size" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent className="bg-[#1E3A5F] border-[#2980B9] text-white">
+                                  {COMPANY_SIZES.map((size) => (
+                                    <SelectItem key={size.value} value={size.value}>
+                                      {size.label}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          );
+                        }}
                       />
                       
                       <FormField
                         control={form.control}
                         name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>How can we help you?</FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder="Tell us about your specific logistics needs"
-                                className="bg-[#1E3A5F] border-[#2980B9] focus:border-[#E67E22] text-white"
-                                rows={4}
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                        render={({ field }) => {
+                          const { value, ...rest } = field;
+                          return (
+                            <FormItem>
+                              <FormLabel>How can we help you?</FormLabel>
+                              <FormControl>
+                                <Textarea
+                                  placeholder="Tell us about your specific logistics needs"
+                                  className="bg-[#1E3A5F] border-[#2980B9] focus:border-[#E67E22] text-white"
+                                  rows={4}
+                                  {...rest}
+                                  value={value || ""}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          );
+                        }}
                       />
                       
                       <div className="flex items-start space-x-2 mt-6">

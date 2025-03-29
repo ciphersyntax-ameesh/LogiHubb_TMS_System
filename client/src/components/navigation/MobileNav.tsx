@@ -102,7 +102,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
           
           {/* Mobile menu panel */}
           <motion.div
-            className="fixed top-0 left-0 bottom-0 w-4/5 max-w-sm bg-gradient-to-br from-[#0F2A47] to-[#1E3A5F] shadow-2xl z-50 md:hidden overflow-y-auto flex flex-col"
+            className="fixed top-0 left-0 bottom-0 w-[80%] max-w-[320px] bg-gradient-to-br from-[#0F2A47] to-[#1E3A5F] shadow-2xl z-50 md:hidden overflow-y-auto flex flex-col"
             initial="closed"
             animate="open"
             exit="closed"
@@ -141,7 +141,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
               <div className="space-y-2.5">
                 {NAV_LINKS.map((navLink, index) => (
                   <motion.div key={navLink.href} variants={itemVariants} custom={index}>
-                    <div onClick={() => { window.location.href = navLink.href; onClose(); }}>
+                    <Link href={navLink.href}>
                       <span
                         className={cn(
                           "flex items-center px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 cursor-pointer",
@@ -150,6 +150,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                             : "text-white hover:bg-[#1E3A5F] hover:shadow-md",
                           location === navLink.href && !navLink.isPrimary && "bg-[#1E3A5F] border-l-4 border-[#3498DB]"
                         )}
+                        onClick={onClose}
                       >
                         {/* Icon based on link type */}
                         <div className="w-8 h-8 flex items-center justify-center mr-3 rounded-md bg-white/10">
@@ -184,7 +185,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                           </svg>
                         )}
                       </span>
-                    </div>
+                    </Link>
                   </motion.div>
                 ))}
               </div>

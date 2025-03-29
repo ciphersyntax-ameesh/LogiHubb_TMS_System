@@ -220,10 +220,10 @@ const MainNav = () => {
           </motion.div>
           
           {/* Mobile Menu Button with animation */}
-          <div className="md:hidden">
+          <div className="md:hidden z-50">
             <motion.button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative w-10 h-10 text-gray-200 hover:text-white focus:outline-none bg-[#1E3A5F]/50 rounded-lg flex items-center justify-center"
+              className="relative w-12 h-12 text-gray-200 hover:text-white focus:outline-none bg-[#1E3A5F]/80 rounded-lg flex items-center justify-center shadow-lg mobile-nav-button fixed top-4 right-4"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle menu"

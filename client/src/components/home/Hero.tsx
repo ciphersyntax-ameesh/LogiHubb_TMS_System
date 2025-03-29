@@ -219,12 +219,13 @@ const Hero = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div
-                    onClick={() => window.location.href = '/register'}
-                    className="inline-block bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-all duration-300 cursor-pointer border border-[#F39C12]/20 hover:shadow-[0_0_15px_rgba(230,126,34,0.5)]"
-                  >
-                    Request Demo
-                  </div>
+                  <Link href="/register">
+                    <div
+                      className="inline-block bg-gradient-to-r from-[#E67E22] to-[#F39C12] text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-all duration-300 cursor-pointer border border-[#F39C12]/20 hover:shadow-[0_0_15px_rgba(230,126,34,0.5)]"
+                    >
+                      Request Demo
+                    </div>
+                  </Link>
                 </motion.div>
                 
                 <motion.div
@@ -234,13 +235,14 @@ const Hero = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div
-                    onClick={() => window.location.href = '/features'}
-                    className="inline-block bg-transparent border-2 border-[#2980B9] hover:border-[#3498DB] hover:shadow-[0_0_10px_rgba(41,128,185,0.3)] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
-                  >
-                    <span className="relative z-10">Explore Features</span>
-                    <div className="absolute inset-0 bg-[#2980B9]/20 w-0 group-hover:w-full transition-all duration-300"></div>
-                  </div>
+                  <Link href="/features">
+                    <div
+                      className="inline-block bg-transparent border-2 border-[#2980B9] hover:border-[#3498DB] hover:shadow-[0_0_10px_rgba(41,128,185,0.3)] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
+                    >
+                      <span className="relative z-10">Explore Features</span>
+                      <div className="absolute inset-0 bg-[#2980B9]/20 w-0 group-hover:w-full transition-all duration-300"></div>
+                    </div>
+                  </Link>
                 </motion.div>
               </div>
               
@@ -263,7 +265,7 @@ const Hero = () => {
             <AnimatedContainer animation="fadeIn" delay={0.3}>
               {/* Top tooltip */}
               <motion.div 
-                className="absolute -top-12 right-10 bg-white/10 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-full shadow-lg border border-white/20 z-20"
+                className="absolute -top-12 md:-top-12 right-4 md:right-10 bg-white/10 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-full shadow-lg border border-white/20 z-20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
@@ -279,7 +281,7 @@ const Hero = () => {
               
               {/* Bottom tooltip */}
               <motion.div 
-                className="absolute -bottom-8 left-10 bg-white/10 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-full shadow-lg border border-white/20 z-20"
+                className="absolute -bottom-8 md:-bottom-8 left-4 md:left-10 bg-white/10 backdrop-blur-sm text-white text-xs py-2 px-4 rounded-full shadow-lg border border-white/20 z-20"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.8 }}
