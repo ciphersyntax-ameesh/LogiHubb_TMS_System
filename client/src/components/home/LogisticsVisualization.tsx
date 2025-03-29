@@ -692,8 +692,46 @@ const LogisticsVisualization = () => {
         </div>
       </motion.div>
       
-      {/* Active Step Indicators with better styling - positioned in the middle for both mobile and desktop */}
-      <div className="absolute top-[45%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-4 md:space-x-6 z-30 active-step-indicator bg-[#0F2A47]/90 py-1.5 px-3 md:py-2 md:px-4 rounded-full shadow-lg">
+      {/* Active Step Indicators with better styling - CSS handles positioning on different screens */}
+      <div className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-6 z-30 bg-[#0F2A47]/90 py-2 px-4 rounded-full shadow-lg">
+        {[0, 1, 2, 3, 4].map(step => (
+          <motion.div
+            key={`step-desktop-${step}`}
+            className="flex flex-col items-center cursor-pointer"
+            whileHover={{ y: -2 }}
+            onClick={() => setActiveStep(step)}
+          >
+            <motion.div
+              className={`w-3 h-3 rounded-full ${
+                step === activeStep 
+                  ? 'bg-[#E67E22] ring-2 ring-[#E67E22]/30' 
+                  : 'bg-[#2980B9]'
+              }`}
+              animate={step === activeStep ? {
+                scale: [1, 1.3, 1],
+                transition: { 
+                  duration: 1.5, 
+                  repeat: Infinity,
+                  repeatType: "loop"
+                }
+              } : {}}
+            />
+            <motion.div
+              className={`text-[10px] mt-1 font-medium ${
+                step === activeStep 
+                  ? 'text-[#E67E22]' 
+                  : 'text-[#2980B9]'
+              }`}
+              animate={step === activeStep ? { opacity: 1 } : { opacity: 0.7 }}
+            >
+              {step + 1}
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+      
+      {/* Mobile version of step indicators (controlled by CSS) */}
+      <div className="md:hidden flex space-x-4 active-step-indicator">
         {[0, 1, 2, 3, 4].map(step => (
           <motion.div
             key={`step-${step}`}

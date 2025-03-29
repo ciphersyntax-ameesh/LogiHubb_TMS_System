@@ -51,7 +51,16 @@
   
   /* Enhance active step indicators visibility on mobile */
   .active-step-indicator {
-    position: relative !important;
-    z-index: 30 !important;
+    position: absolute !important;
+    top: 35% !important; 
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;
+    justify-content: space-between !important;
+    padding: 6px 10px !important;
+    z-index: 50 !important;
+    background-color: rgba(15, 42, 71, 0.9) !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
   }
 }
