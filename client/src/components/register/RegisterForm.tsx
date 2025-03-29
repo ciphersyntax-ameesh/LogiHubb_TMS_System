@@ -41,37 +41,10 @@ const RegisterForm = () => {
     },
   });
 
-  // This form supports two modes of operation:
-  // 1. API submission to the backend (default in development)
-  // 2. Formspree integration for static hosting (set FORMSPREE_ENDPOINT in environment)
   const onSubmit = async (data: InsertLead) => {
     setIsSubmitting(true);
     try {
-      // Check if we have a Formspree endpoint configured
-      const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
-      
-      if (formspreeEndpoint) {
-        // Use Formspree for static hosting
-        const response = await fetch(formspreeEndpoint, {
-          method: "POST",
-          headers: { 
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(data)
-        });
-        
-        if (!response.ok) {
-          throw new Error("Form submission failed");
-        }
-      } else {
-        // Fallback to simulated submission when no Formspree endpoint is provided
-        console.log("Form data submitted:", data);
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-      
+      await apiRequest("POST", "/api/leads", data);
       setIsSuccess(true);
       toast({
         title: "Success!",
@@ -254,7 +227,7 @@ const RegisterForm = () => {
                             <FormLabel>Company Size</FormLabel>
                             <Select
                               onValueChange={field.onChange}
-                              defaultValue={field.value === null ? undefined : field.value}
+                              defaultValue={field.value}
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-[#1E3A5F] border-[#2980B9] focus:border-[#E67E22] text-white">
@@ -286,7 +259,6 @@ const RegisterForm = () => {
                                 className="bg-[#1E3A5F] border-[#2980B9] focus:border-[#E67E22] text-white"
                                 rows={4}
                                 {...field}
-                                value={field.value === null ? "" : field.value}
                               />
                             </FormControl>
                             <FormMessage />
